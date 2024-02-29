@@ -14,11 +14,13 @@ class GildedRose
       return normal_tick
     when 'Aged Brie'
       return brie_tick
-    when 'Sulfuras'
+    when 'Sulfuras, Hand of Ragnaros'
       return sulfuras_tick
-    when 'Backstage Pass'
+    when 'Backstage passes to a TAFKAL80ETC concert'
       return backstage_tick
     end
+
+  end
 
   def normal_tick
     @days_remaining -= 1
@@ -41,12 +43,13 @@ class GildedRose
 
   def backstage_tick
     @days_remaining -= 1
-    return if @quality >= 50
     return @quality = 0 if @days_remaining < 0
+    return if @quality >= 50
 
     @quality += 1
     @quality += 1 if @days_remaining < 10
     @quality += 1 if @days_remaining < 5
+    @quality = 50 if quality > 50
   end
 
 end
