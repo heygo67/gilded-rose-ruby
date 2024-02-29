@@ -16,7 +16,7 @@ RSpec.describe GildedRose do
     it "on sell date" do
       gilded_rose = GildedRose.new(name: "Normal Item", days_remaining: 0, quality: 10)
 
-      gilded_rose.tick
+      gilded_rose.normal_tick
 
       expect(gilded_rose).to have_attributes(days_remaining: -1, quality: 8)
     end
@@ -24,7 +24,7 @@ RSpec.describe GildedRose do
     it "after sell date" do
       gilded_rose = GildedRose.new(name: "Normal Item", days_remaining: -10, quality: 10)
 
-      gilded_rose.tick
+      gilded_rose.normal_tick
 
       expect(gilded_rose).to have_attributes(days_remaining: -11, quality: 8)
     end
@@ -32,7 +32,7 @@ RSpec.describe GildedRose do
     it "of zero quality" do
       gilded_rose = GildedRose.new(name: "Normal Item", days_remaining: 5, quality: 0)
 
-      gilded_rose.tick
+      gilded_rose.normal_tick
 
       expect(gilded_rose).to have_attributes(days_remaining: 4, quality: 0)
     end
