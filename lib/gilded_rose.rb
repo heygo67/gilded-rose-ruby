@@ -9,7 +9,7 @@ class GildedRose
 
   def tick
 
-    if name == 'normal'
+    if name == 'Normal Item'
       return
     end
 
