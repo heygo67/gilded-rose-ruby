@@ -57,4 +57,10 @@ class GildedRose
       end
     end
   end
+
+  def normal_tick
+    @quality -= 1
+    @days_remaining -= 1
+  end
+  
 end

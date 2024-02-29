@@ -7,9 +7,10 @@ RSpec.describe GildedRose do
     it "before sell date" do
       gilded_rose = GildedRose.new(name: "Normal Item", days_remaining: 5, quality: 10)
 
-      gilded_rose.tick
+      gilded_rose.normal_tick
 
       expect(gilded_rose).to have_attributes(days_remaining: 4, quality: 9)
+
     end
 
     it "on sell date" do
